@@ -13,14 +13,14 @@ class UserList extends Component {
     var a=Object.values(X)
     var string=[]
     for(var i=0;i<a.length;i++){
-      for(var j=0;j<a[0].length;j++){
-        if(j<a[0].length-1){
-          string+=a[i][j]+","
-        }
-        else if(j == a[0].length-1){
-          string+=a[i][j]+" \n"
-        }
+      var r=[]
+      for(var j=0;j<a.length;j++){
+        string.push(a[i][j])
+        string.push('\xa0')
       }
+      string.push('\xa0\xa0')
+      string.push(a[i][j])
+      string.push(<br/>)
     }
     return string
   }
@@ -30,7 +30,7 @@ class UserList extends Component {
     return (
       <div>
        <Col span={12} style={{marginTop : 20}}>
-    <Button onClick={this.call}>X={ this.show()} ,F(X)={FX} ,XN={XN} </Button>
+       <button type="button" class="btn btn-primary"onClick={this.call}>{ this.show()} F(X)={FX} ,XN={XN} </button>
             
           </Col>
       </div>
